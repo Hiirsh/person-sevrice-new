@@ -1,0 +1,660 @@
+{
+	"info": {
+		"_postman_id": "477d67d7-3b0d-4375-8745-fd74136551ce",
+		"name": "Person",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1000,\n    \"name\": \"Peter\",\n    \"birthDate\": \"1996-11-12\",\n    \"address\": {\n        \"city\": \"Lod\",\n        \"street\": \"Bar Kohva\",\n        \"building\": 12\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add person",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1000,\n    \"name\": \"Peter\",\n    \"birthDate\": \"1996-11-12\",\n    \"address\": {\n        \"city\": \"Lod\",\n        \"street\": \"Bar Kohva\",\n        \"building\": 12\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/person",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 07:12:07 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "true"
+				}
+			]
+		},
+		{
+			"name": "Find person",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/person/3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"3000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find person",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/person/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"1000"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 07:12:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1000,\n    \"name\": \"Peter\",\n    \"birthDate\": \"1996-11-12\",\n    \"address\": {\n        \"city\": \"Lod\",\n        \"street\": \"Bar Kohva\",\n        \"building\": 12\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Find by city",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/person/city/Ashkelon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"city",
+						"Ashkelon"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find by city",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/person/city/Ramat%20Gan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"city",
+								"Ramat%20Gan"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 08:16:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2000,\n        \"name\": \"Mary\",\n        \"birthDate\": \"1998-11-12\",\n        \"address\": {\n            \"city\": \"Ramat Gan\",\n            \"street\": \"Bar Kohva\",\n            \"building\": 12\n        }\n    },\n    {\n        \"id\": 4000,\n        \"name\": \"Peter\",\n        \"birthDate\": \"1990-11-12\",\n        \"address\": {\n            \"city\": \"Ramat Gan\",\n            \"street\": \"Bar Kohva\",\n            \"building\": 12\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Find by ages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/person/ages/20/30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"ages",
+						"20",
+						"30"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find by ages",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/person/ages/20/30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"ages",
+								"20",
+								"30"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 08:23:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1000,\n        \"name\": \"Peter\",\n        \"birthDate\": \"1996-11-12\",\n        \"address\": {\n            \"city\": \"Beer-Sheva\",\n            \"street\": \"Herzl\",\n            \"building\": 21\n        }\n    },\n    {\n        \"id\": 2000,\n        \"name\": \"Mary\",\n        \"birthDate\": \"1998-11-12\",\n        \"address\": {\n            \"city\": \"Ramat Gan\",\n            \"street\": \"Bar Kohva\",\n            \"building\": 12\n        }\n    },\n    {\n        \"id\": 3000,\n        \"name\": \"John\",\n        \"birthDate\": \"1993-11-12\",\n        \"address\": {\n            \"city\": \"Ashkelon\",\n            \"street\": \"Bar Kohva\",\n            \"building\": 209\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Update name",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/person/1000/name/Johny",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"1000",
+						"name",
+						"Johny"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update name",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/person/3000/name/Johny",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"3000",
+								"name",
+								"Johny"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 06:44:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3000,\n    \"name\": \"Johny\",\n    \"birthDate\": \"1993-11-12\",\n    \"address\": {\n        \"city\": \"Ashkelon\",\n        \"street\": \"Bar Kohva\",\n        \"building\": 209\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Find by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/person/name/Peter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"name",
+						"Peter"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find by name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/person/name/Peter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"name",
+								"Peter"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 07:53:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1000,\n        \"name\": \"Peter\",\n        \"birthDate\": \"1996-11-12\",\n        \"address\": {\n            \"city\": \"Beer-Sheva\",\n            \"street\": \"Herzl\",\n            \"building\": 21\n        }\n    },\n    {\n        \"id\": 4000,\n        \"name\": \"Peter\",\n        \"birthDate\": \"1990-11-12\",\n        \"address\": {\n            \"city\": \"Ramat Gan\",\n            \"street\": \"Bar Kohva\",\n            \"building\": 12\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get city population",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/person/population/city",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"population",
+						"city"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get city population",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/person/population/city",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"population",
+								"city"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 08:52:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"city\": \"Ashkelon\",\n        \"population\": 1\n    },\n    {\n        \"city\": \"Beer-Sheva\",\n        \"population\": 1\n    },\n    {\n        \"city\": \"Ramat Gan\",\n        \"population\": 2\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Update address",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"city\": \"Beer-Sheva\",\n        \"street\": \"Herzl\",\n        \"building\": 21\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/person/1000/address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"1000",
+						"address"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update address",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"city\": \"Beer-Sheva\",\n        \"street\": \"Herzl\",\n        \"building\": 21\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/person/1000/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"1000",
+								"address"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 07:44:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1000,\n    \"name\": \"Peter\",\n    \"birthDate\": \"1996-11-12\",\n    \"address\": {\n        \"city\": \"Beer-Sheva\",\n        \"street\": \"Herzl\",\n        \"building\": 21\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete person",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/person/1000",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"1000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete person",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/person/1000",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"1000"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Apr 2022 07:11:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1000,\n    \"name\": \"Peter\",\n    \"birthDate\": \"1903-11-12\",\n    \"address\": {\n        \"city\": \"Ramat Gan\",\n        \"street\": \"Bar Kohva\",\n        \"building\": 12\n    }\n}"
+				}
+			]
+		}
+	]
+}
