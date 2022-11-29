@@ -112,30 +112,34 @@ public class PersonServiceImpl implements PersonService, CommandLineRunner {
   }
 
   @Override
+  @Transactional(readOnly = true)
   public Iterable<PersonDto> findEmployeeBySalary(int min, int max) {
-    return personRepository.findEmployeeBySalary(min, max).stream()
+    return personRepository.findBySalaryBetween(min, max)
         .map(e -> modelMapper.map(e, getDtoClass(e)))
         .collect(Collectors.toList());
   }
 
   @Override
+  @Transactional(readOnly = true)
   public Iterable<PersonDto> getChildren() {
-    return personRepository.getChildren().stream()
+    return personRepository.findChildrenBy()
         .map(c -> modelMapper.map(c, getDtoClass(c)))
         .collect(Collectors.toList());
   }
 
   @Override
   public void run(String... args) throws Exception {
-    // Person person = new Person(1000, "Vasya Pupkin", LocalDate.of(1985, 8, 02),
-    // new Address("Tel Aviv", "Ben Gvirol ", 87));
-    // Child child = new Child(2000, "Vasya Pupkin jr.", LocalDate.of(2017, 3, 15),
-    // new Address("Ashkelon", "Bar Kohva", 21), "Shalom");
-    // Employee employee = new Employee(3000, "John Doe", LocalDate.of(1994, 7, 21),
-    // new Address("Rehovot", "HaRav Meltzer", 213), "Motorolla", 20000);
-    // personRepository.save(person);
-    // personRepository.save(child);
-    // personRepository.save(employee);
+    /*
+     * Person person = new Person(1000, "Vasya Pupkin", LocalDate.of(1985, 8, 02),
+     * new Address("Tel Aviv", "Ben Gvirol ", 87));
+     * Child child = new Child(2000, "Vasya Pupkin jr.", LocalDate.of(2017, 3, 15),
+     * new Address("Ashkelon", "Bar Kohva", 21), "Shalom");
+     * Employee employee = new Employee(3000, "John Doe", LocalDate.of(1994, 7, 21),
+     * new Address("Rehovot", "HaRav Meltzer", 213), "Motorolla", 20000);
+     * personRepository.save(person);
+     * personRepository.save(child);
+     * personRepository.save(employee);
+     */
   }
 
   private Class<? extends Person> getModelClass(PersonDto personDto) {

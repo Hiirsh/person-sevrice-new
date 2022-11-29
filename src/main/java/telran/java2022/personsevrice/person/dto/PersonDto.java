@@ -20,7 +20,6 @@ import lombok.Getter;
 })
 public class PersonDto implements Serializable {
   private static final long serialVersionUID = -687991492884005072L;
-
   Integer id;
   String name;
   LocalDate birthDate;

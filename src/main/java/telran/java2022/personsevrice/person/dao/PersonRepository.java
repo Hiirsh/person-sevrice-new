@@ -5,6 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import telran.java2022.personsevrice.person.dto.CityPopulationDto;
+import telran.java2022.personsevrice.person.model.Child;
+import telran.java2022.personsevrice.person.model.Employee;
 import telran.java2022.personsevrice.person.model.Person;
 
 import java.time.LocalDate;
@@ -24,9 +26,12 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
   @Query("select new telran.java2022.personsevrice.person.dto.CityPopulationDto(p.address.city, count(p)) from Person p group by p.address.city order by count(p) desc")
   List<CityPopulationDto> getCitiesPopulation();
   
-  @Query(value = "SELECT * FROM PERSONS p WHERE p.DTYPE ='Employee' AND p.SALARY BETWEEN ?1 AND ?2", nativeQuery = true)
-  List<Person> findEmployeeBySalary(int min, int max);
-
-  @Query(value = "SELECT * FROM PERSONS p WHERE p.DTYPE ='Child'", nativeQuery = true)
-  List<Person> getChildren();
+  // @Query(value = "SELECT * FROM PERSONS p WHERE p.DTYPE ='Employee' AND p.SALARY BETWEEN ?1 AND ?2", nativeQuery = true)
+  // List<Employee> findEmployeeBySalary(int min, int max);
+  
+  Stream<Employee> findBySalaryBetween(int min, int max);
+  
+  // @Query(value = "SELECT * FROM PERSONS p WHERE p.DTYPE ='Child'", nativeQuery = true)
+  // List<Person> findAllChildren();
+  Stream<Child> findChildrenBy();
 }
