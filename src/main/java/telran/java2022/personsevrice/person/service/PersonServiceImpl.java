@@ -2,8 +2,6 @@ package telran.java2022.personsevrice.person.service;
 
 import java.time.LocalDate;
 import java.util.stream.Collectors;
-// import java.util.Map;
-// import java.util.stream.StreamSupport;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
